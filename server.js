@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Adicione o CORS
+const cors = require('cors'); 
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,8 +19,6 @@ mongoose.connect(MONGODB_URI, {
   console.error('Erro ao conectar ao MongoDB:', error);
 });
 
-
-// Criar um modelo para os dados da barbearia
 const BarberSchema = new mongoose.Schema({
     nome: String,
     sobrenome: String,
@@ -31,11 +29,11 @@ const BarberSchema = new mongoose.Schema({
 
 const Barber = mongoose.model('barbearia', BarberSchema);
 
-// Middleware
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Rotas
+
 app.post('/api/barbearia', async (req, res) => {
     const { nome, telefone, sobrenome, email, senha  } = req.body;
     const newBarber = new Barber({ nome, telefone, sobrenome, email, senha    });
