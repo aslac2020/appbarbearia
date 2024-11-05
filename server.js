@@ -29,6 +29,25 @@ const BarberSchema = new mongoose.Schema({
 
 const Barber = mongoose.model('barbearia', BarberSchema);
 
+const handler = async (req, res) => {
+    await cors()(req, res); 
+  
+    if (req.method === 'POST') {
+      const { nome, telefone, servico } = req.body;
+      try {
+        const newBarber = new Barber({ nome, telefone, servico });
+        await newBarber.save();
+        res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
+      } catch (error) {
+        res.status(500).json({ message: 'Erro ao cadastrar usuário.' });
+      }
+    } else {
+      res.status(405).json({ message: 'Método não permitido' });
+    }
+  };
+  
+  export default handler;
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
