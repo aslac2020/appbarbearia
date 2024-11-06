@@ -2,9 +2,9 @@
   "name": "barbearia-api",
   "version": "1.0.0",
   "description": "API para cadastro de barbearia",
-  "main": "server.js",
+  "main": "api/barbearia.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node api/barbearia.js"
   },
   "dependencies": {
     "body-parser": "^1.20.3",
