@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/", "destination": "/formulario.html" },
+      { "source": "/", "destination": "/login.html" },
       { "source": "/api/(.*)", "destination": "/api/$1" }
     ]
   }
