@@ -1,7 +1,16 @@
 * {
   margin: 0;
-  padding: 2;
 }
+
+.row {
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1* var(--bs-gutter-y));
+  margin-right: calc(-.5* var(--bs-gutter-x));
+  margin-left: calc(-.5* var(--bs-gutter-x));
+}
+
 
 nav {
   background-color: #062912;
@@ -14,7 +23,7 @@ nav {
   }
 
   .subtitulo {
-    font-size: 12px;
+    font-size: 10px !important;
     color: yellow;
   }
 }
@@ -26,8 +35,8 @@ nav {
   margin-top: 10%;
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }	
 }
 
