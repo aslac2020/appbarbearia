@@ -1,7 +1,15 @@
-const mongoose = require('mongoose');
-const Barber = require('./barbearia'); 
+
+const { Barber } = require('./db');
 
 const handler = async (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end();
+    }
+
     if (req.method === 'POST') {
         const { email, senha } = req.body;
         try {
@@ -12,6 +20,7 @@ const handler = async (req, res) => {
                 res.status(401).json({ message: 'Email ou senha incorretos' });
             }
         } catch (error) {
+            console.error('Erro no servidor:', error);
             res.status(500).json({ message: 'Erro no servidor' });
         }
     } else {
