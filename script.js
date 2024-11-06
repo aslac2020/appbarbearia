@@ -24,6 +24,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
     messageElement.className = 'alert alert-success';
     messageElement.style.display = 'block'; 
     form.reset();
+    window.location.href = 'login.html';
     
   } else {
     messageElement.textContent = 'Erro ao cadastrar usuário.';

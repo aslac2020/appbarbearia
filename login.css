@@ -1,0 +1,102 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://example.com/background-image.jpg'); /* Insira o URL da imagem */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #062912;
+  }
+  
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+
+    label {
+        color: #062912;
+    }
+
+    button {
+        background-color: #062912;
+        color: #ffffff;
+        padding: 0.5em 1em;
+        border: 0;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        width: 200px;
+      }
+      
+      button:hover {
+        background-color: #568367;
+        box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.2);
+        text-shadow: none;
+      }
+
+  }
+
+  .container-link {
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 5px;
+ 
+   a {
+     cursor: pointer;
+     text-decoration: none !important;
+     font-size: 12px;
+   }
+}
+  
+  .login-container img {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 1rem;
+  }
+  
+  .login-container h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #062912;
+  }
+  
+  .login-container form {
+    width: 100%;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  
+  .alert {
+    margin-top: 1rem;
+    padding: 0.5rem;
+  }
+  
