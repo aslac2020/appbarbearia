@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-app.use(cors());
+app.use(cors({origin: '*'}));
 
 // Conecte ao MongoDB Atlas
 const MONGODB_URI = process.env.MONGODB_URI;
