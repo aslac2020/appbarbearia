@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const cors = require('cors');
 
-app.use(cors({origin: '*'}));
 
 // Conecte ao MongoDB Atlas
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -15,25 +13,32 @@ const BarberSchema = new mongoose.Schema({
     email: String,
     senha: String
 });
+
 const Barber = mongoose.model('barbearia', BarberSchema);
 
-// Função handler para lidar com requisições
 const handler = async (req, res) => {
-    await cors()(req, res); // Habilitar CORS para permitir requisições de qualquer origem
-    
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        return res.status(200).end(); // Responde com 200 para requisições OPTIONS
+    }
+
     if (req.method === 'POST') {
-        // Receber os dados do request body
         const { nome, sobrenome, telefone, email, senha } = req.body;
         try {
             const newBarber = new Barber({ nome, sobrenome, telefone, email, senha });
             await newBarber.save();
             res.status(201).json({ message: 'Usuário cadastrado com sucesso!' });
         } catch (error) {
+            console.error('Erro ao cadastrar usuário:', error);
             res.status(500).json({ message: 'Erro ao cadastrar usuário.' });
         }
     } else {
         res.status(405).json({ message: 'Método não permitido' });
     }
 };
+
 
 module.exports = handler;
