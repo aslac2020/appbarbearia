@@ -10,7 +10,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
   const senha = document.getElementById('senha').value;
   const form = document.getElementById('cadastroForm');
 
-  const response = await fetch('http://localhost:3000/api/barbearia', {
+  const response = await fetch('https://appbarbearia.vercel.app/api/barbearia', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
