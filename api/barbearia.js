@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+app.use(cors());
+
 // Conecte ao MongoDB Atlas
-const MONGODB_URI = 'mongodb+srv://andrelacerda:h8BhL3ms7moDHEqY@barbearia.udttw.mongodb.net/';
+const MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Defina o modelo de dados
